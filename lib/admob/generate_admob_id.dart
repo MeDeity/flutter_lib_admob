@@ -8,7 +8,7 @@ import 'package:flutter/material.dart';
 ///
 class GenerateAdmobId {
   ///存放appIds(android/ios)
-  final List<String> appIdList;
+  List<String> appIdList;
 
   ///存放bannerIds(android/ios) --Banner
   List<String> androidBannerIdList = List();
@@ -29,16 +29,61 @@ class GenerateAdmobId {
       this.androidInterstitialIdList,
       this.iosInterstitialIdList,
       this.androidRewardBasedVideoIdList,
-      this.iosRewardBasedVideoIdList}):assert(null!=appIdList);
+      this.iosRewardBasedVideoIdList})
+      : assert(null != appIdList);
 
   ///返回随机Id
-  String getRandomIds(List<String> list){
+  String getRandomIds(List<String> list) {
     String result = "";
-    if(null!=list&&list.isNotEmpty){
+    if (null != list && list.isNotEmpty) {
       int size = list.length;
       int seed = Random().nextInt(size);
       result = list[seed];
     }
     return result;
+  }
+
+  //
+  //Test Id's from: 测试用的ID值
+  //https://developers.google.com/admob/ios/banner
+  //https://developers.google.com/admob/android/banner
+  //
+  //App Id
+  //Android: ca-app-pub-3940256099942544~3347511713
+  //iOS: ca-app-pub-3940256099942544~1458002511
+  //
+  //Banner
+  //Android: ca-app-pub-3940256099942544/6300978111
+  //iOS: ca-app-pub-3940256099942544/2934735716
+  //
+  //Interstitial
+  //Android: ca-app-pub-3940256099942544/1033173712
+  //iOS: ca-app-pub-3940256099942544/4411468910
+  //
+  //Reward Video
+  //Android: ca-app-pub-3940256099942544/5224354917
+  //iOS: ca-app-pub-3940256099942544/1712485313
+  //
+  void initTestIds() {
+    this.appIdList = [
+      "ca-app-pub-3940256099942544~3347511713",
+      "ca-app-pub-3940256099942544~1458002511"
+    ];
+
+    ///android+ios app id;
+    this.androidBannerIdList = ["ca-app-pub-3940256099942544/6300978111"];
+
+    ///android banner id
+    this.iosBannerIdList = ["ca-app-pub-3940256099942544/2934735716"];
+
+    ///Interstitial id
+    this.androidInterstitialIdList = ["ca-app-pub-3940256099942544/1033173712"];
+    this.iosInterstitialIdList = ["ca-app-pub-3940256099942544/4411468910"];
+
+    ///Reward Video
+    this.androidRewardBasedVideoIdList = [
+      "ca-app-pub-3940256099942544/5224354917"
+    ];
+    this.iosRewardBasedVideoIdList = ["ca-app-pub-3940256099942544/1712485313"];
   }
 }
