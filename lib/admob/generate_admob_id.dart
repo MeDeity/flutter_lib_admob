@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'dart:math';
 
 import 'package:flutter/material.dart';
@@ -23,14 +24,13 @@ class GenerateAdmobId {
   List<String> iosRewardBasedVideoIdList = List();
 
   GenerateAdmobId(
-      {@required this.appIdList,
+      {this.appIdList,
       this.androidBannerIdList,
       this.iosBannerIdList,
       this.androidInterstitialIdList,
       this.iosInterstitialIdList,
       this.androidRewardBasedVideoIdList,
-      this.iosRewardBasedVideoIdList})
-      : assert(null != appIdList);
+      this.iosRewardBasedVideoIdList});
 
   ///返回随机Id
   String getRandomIds(List<String> list) {
@@ -39,6 +39,40 @@ class GenerateAdmobId {
       int size = list.length;
       int seed = Random().nextInt(size);
       result = list[seed];
+    }
+    return result;
+  }
+
+  ///返回banner id
+  String getBannerRandomId(){
+    String result = "";
+    if(Platform.isAndroid){
+      result = getRandomIds(androidBannerIdList);
+    }else if(Platform.isIOS){
+      result = getRandomIds(iosBannerIdList);
+    }
+    return result;
+  }
+
+
+  ///返回Interstitial id
+  String getInterstitialRandomId(){
+    String result = "";
+    if(Platform.isAndroid){
+      result = getRandomIds(androidInterstitialIdList);
+    }else if(Platform.isIOS){
+      result = getRandomIds(iosInterstitialIdList);
+    }
+    return result;
+  }
+
+  ///返回Reward id
+  String getRewardRandomId(){
+    String result = "";
+    if(Platform.isAndroid){
+      result = getRandomIds(androidRewardBasedVideoIdList);
+    }else if(Platform.isIOS){
+      result = getRandomIds(iosRewardBasedVideoIdList);
     }
     return result;
   }
