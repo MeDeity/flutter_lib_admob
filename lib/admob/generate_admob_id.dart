@@ -43,6 +43,22 @@ class GenerateAdmobId {
     return result;
   }
 
+  ///返回app id
+  String getAppId(){
+    String result = "";
+    int size = appIdList?.length??0;
+    if(Platform.isAndroid){
+      if(size>=1){
+        result = appIdList[0];
+      }
+    }else if(Platform.isIOS){
+      if(size>=2){
+        result = appIdList[1];
+      }
+    }
+    return result;
+  }
+
   ///返回banner id
   String getBannerRandomId(){
     String result = "";
