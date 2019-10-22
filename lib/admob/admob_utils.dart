@@ -30,6 +30,10 @@ mixin AdmobUtils {
         iosRewardBasedVideoIdList: iosRewardBasedVideoIdList);
   }
 
+  GenerateAdmobId getAdmobIdFactory(){
+    return _generateAdmobId;
+  }
+
 
   ///回调处理
   void initData(EventCallback callback) {
