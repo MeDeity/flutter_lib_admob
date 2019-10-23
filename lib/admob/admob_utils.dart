@@ -13,7 +13,7 @@ class AdmobUtils {
   static AdmobReward rewardAd;
 
   ///初始化id
-  void initAdmobIds({
+  static void initAdmobIds({
     List<String> appIdList,
     List<String> androidBannerIdList,
     List<String> iosBannerIdList,
@@ -64,7 +64,7 @@ class AdmobUtils {
     rewardAd?.show();
   }
 
-  Widget showBannerAd({AdmobBannerSize bannerSize:AdmobBannerSize.BANNER,EventCallback callback}) {
+  static Widget showBannerAd({AdmobBannerSize bannerSize:AdmobBannerSize.BANNER,EventCallback callback}) {
     return AdmobBanner(
       adUnitId: _generateAdmobId.getBannerRandomId(),
       adSize: bannerSize,
