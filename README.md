@@ -6,6 +6,7 @@ a flutter lib utils for admob.
 
 ### 示例Demo
 你可以在这里看到示例Demo:[admob_demo](https://github.com/MeDeity/admob_demo)
+![demo_download_address](images/download_url.png)
 
 
 ### 平台相关
