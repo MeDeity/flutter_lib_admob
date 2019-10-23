@@ -1,8 +1,8 @@
 name: flutter_lib_admob
-description: A new Flutter package.
+description: a flutter lib utils for admob..
 version: 0.0.1
-author:
-homepage:
+author: MeDeity<langrenbule@gmail.com>
+homepage: https://github.com/MeDeity/flutter_lib_admob
 
 environment:
   sdk: ">=2.1.0 <3.0.0"

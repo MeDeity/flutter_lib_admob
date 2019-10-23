@@ -3,7 +3,13 @@
 a flutter lib utils for admob.
 
 ## How To Use
-#### Android 配置:
+
+### 示例Demo
+你可以在这里看到示例Demo:[admob_demo](https://github.com/MeDeity/admob_demo)
+
+
+### 平台相关
+#### 一、Android 配置:
 在AndroidManifest.xml中配置AppId(以下以官方测试用ID为例):
 ```
 <application>
@@ -15,14 +21,14 @@ a flutter lib utils for admob.
 </application>
 ```
 
-#### IOS配置
+#### 二、IOS配置
 在Info.plist中加入以下内容
 ```
 <key>GADApplicationIdentifier</key>
 <string>ca-app-pub-3940256099942544~1458002511</string>
 ```
 
-#### 初始化
+#### 三、初始化
 ```
 AdmobUtils.initAdmobIds(
       appIdList: [
@@ -45,7 +51,7 @@ GenerateAdmobId factory = AdmobUtils.getAdmobIdFactory();
 Admob.initialize(factory.getAppId());
 ```
 
-#### 展示广告
+#### 四、展示广告
 
 ```dart
 ///展示插页式AD
@@ -58,3 +64,5 @@ Widget banner = AdmobUtils.showBannerAd(
     ///do something
 }),
 ```
+
+
