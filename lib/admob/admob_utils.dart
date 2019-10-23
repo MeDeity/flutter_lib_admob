@@ -7,10 +7,10 @@ import 'package:flutter_lib_admob/admob/generate_admob_id.dart';
 /// 工具类汇总
 /// create by fengwenhua at 2019-10-21 17:22:11
 ///
-mixin AdmobUtils {
-  GenerateAdmobId _generateAdmobId;
-  AdmobInterstitial interstitialAd;
-  AdmobReward rewardAd;
+class AdmobUtils {
+  static GenerateAdmobId _generateAdmobId;
+  static AdmobInterstitial interstitialAd;
+  static AdmobReward rewardAd;
 
   ///初始化id
   void initAdmobIds({
@@ -30,13 +30,13 @@ mixin AdmobUtils {
         iosRewardBasedVideoIdList: iosRewardBasedVideoIdList);
   }
 
-  GenerateAdmobId getAdmobIdFactory(){
+  static GenerateAdmobId getAdmobIdFactory(){
     return _generateAdmobId;
   }
 
 
   ///回调处理
-  void initData(EventCallback callback) {
+  static void initData(EventCallback callback) {
     interstitialAd = AdmobInterstitial(
       adUnitId: _generateAdmobId.getInterstitialRandomId(),
       listener: (AdmobAdEvent event, Map<String, dynamic> args) {
@@ -56,11 +56,11 @@ mixin AdmobUtils {
     rewardAd.load();
   }
 
-  void showInterstitialAd() {
+  static void showInterstitialAd() {
     interstitialAd?.show();
   }
 
-  void showRewardAd() {
+  static void showRewardAd() {
     rewardAd?.show();
   }
 
@@ -74,17 +74,17 @@ mixin AdmobUtils {
     );
   }
 
-  void disposeInterstitialAd() {
+  static void disposeInterstitialAd() {
     interstitialAd?.show();
   }
 
-  void disposeRewardAd() {
+  static void disposeRewardAd() {
     rewardAd?.show();
   }
 
 
   ///测试用方法
-  void initTestData(EventCallback callback) {
+  static void initTestData(EventCallback callback) {
     _generateAdmobId = GenerateAdmobId()
       ..initTestIds();
 
