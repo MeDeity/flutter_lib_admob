@@ -37,7 +37,6 @@ mixin AdmobUtils {
 
   ///回调处理
   void initData(EventCallback callback) {
-    initAdmobIds();
     interstitialAd = AdmobInterstitial(
       adUnitId: _generateAdmobId.getInterstitialRandomId(),
       listener: (AdmobAdEvent event, Map<String, dynamic> args) {
