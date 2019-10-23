@@ -41,6 +41,7 @@ mixin AdmobUtils {
     interstitialAd = AdmobInterstitial(
       adUnitId: _generateAdmobId.getInterstitialRandomId(),
       listener: (AdmobAdEvent event, Map<String, dynamic> args) {
+        if (event == AdmobAdEvent.closed) interstitialAd.load();
         callback(event, args, AdTypeEnum.Interstitial);
       },
     );
